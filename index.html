@@ -1,1 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Elements Guide – CSC 227</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>HTML Elements Guide</h1>
+        <p>Master Forms, Tables, and Input Elements – CSC 227</p>
+    </header>
 
+    <nav>
+        <ul>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#text-input">Text Input</a></li>
+            <li><a href="#radio">Radio Buttons</a></li>
+            <li><a href="#checkboxes">Checkboxes</a></li>
+            <li><a href="#select">Dropdown</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#tables">Tables</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- FORMS SECTION -->
+        <section id="forms">
+            <h2>HTML Forms</h2>
+            <p class="section-intro">Forms are the primary way users submit data to a web server. They contain various input elements that capture different types of information. Every form must be wrapped in a &lt;form&gt; tag and typically includes a submit button to send data.</p>
+
+            <div class="attributes-block">
+                <strong>Form Tag Attributes:</strong>
+                ACTION (where to send data) | METHOD (GET or POST) | NAME (form identifier)
+            </div>
+        </section>
+
+        <!-- TEXT INPUT SECTION -->
+        <section id="text-input">
+            <h2>Text Input & Email</h2>
+            <p class="section-intro">Text inputs are the foundation of form interactions. They accept single-line text, while the email type provides built-in validation for email addresses.</p>
+
+            <div class="attributes-block">
+                <strong>Key Attributes:</strong>
+                SIZE (display width) | MAXLENGTH (character limit) | VALUE (default text) | PLACEHOLDER (hint text)
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">💻 Code Example</div>
+                <div class="example-layout">
+                    <div class="code-section"><code>&lt;input type="text" 
+  name="username" 
+  SIZE="35"
+  placeholder="Enter username"&gt;
+
+&lt;input type="email" 
+  name="email"
+  placeholder="your@email.com"&gt;</code></div>
+                    <div class="preview-section">
+                        <label>Username:</label>
+                        <input type="text" name="username" SIZE="35" placeholder="Enter username">
+                        <br>
+                        <label style="margin-top: 1rem;">Email:</label>
+                        <input type="email" name="email" placeholder="your@email.com">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RADIO BUTTONS SECTION -->
+        <section id="radio">
+            <h2>Radio Buttons</h2>
+            <p class="section-intro">Radio buttons allow users to select ONE option from a group. All radio buttons in a group must share the same NAME attribute, which ensures only one can be selected at a time.</p>
+
+            <div class="rules-block">
+                <strong>Key Rules:</strong>
+                Same NAME = one group | Only ONE can be selected | Use CHECKED for default | Each needs unique VALUE
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">💻 Code Example</div>
+                <div class="example-layout">
+                    <div class="code-section"><code>&lt;input type="radio" 
+  name="choice" 
+  value="option1"&gt;
+Option 1
+
+&lt;input type="radio" 
+  name="choice" 
+  value="option2"
+  checked&gt;
+Option 2 (default)</code></div>
+                    <div class="preview-section">
+                        <label style="display: block; margin-bottom: 1rem;">Choose one:</label>
+                        <div class="radio-option">
+                            <input type="radio" name="choice" value="yes" id="yes">
+                            <label for="yes" style="margin-bottom: 0;">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="choice" value="no" id="no" checked>
+                            <label for="no" style="margin-bottom: 0;">No (default)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHECKBOXES SECTION -->
+        <section id="checkboxes">
+            <h2>Checkboxes</h2>
+            <p class="section-intro">Checkboxes allow users to select MULTIPLE options from a list. Unlike radio buttons, each checkbox is independent. Checkboxes in the same group typically share the same NAME.</p>
+
+            <div class="rules-block">
+                <strong>Key Rules:</strong>
+                Multiple can be selected | Use same NAME for grouping | Use CHECKED for defaults | Each needs unique VALUE
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">💻 Code Example</div>
+                <div class="example-layout">
+                    <div class="code-section"><code>&lt;input type="checkbox" 
+  name="interests" 
+  value="sports"&gt;
+Sports
+
+&lt;input type="checkbox" 
+  name="interests" 
+  value="music"
+  checked&gt;
+Music (default)</code></div>
+                    <div class="preview-section">
+                        <label style="display: block; margin-bottom: 1rem;">Select your interests:</label>
+                        <div class="checkbox-option">
+                            <input type="checkbox" name="interests" value="sports" id="sports">
+                            <label for="sports" style="margin-bottom: 0;">Sports</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" name="interests" value="music" id="music" checked>
+                            <label for="music" style="margin-bottom: 0;">Music</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" name="interests" value="reading" id="reading">
+                            <label for="reading" style="margin-bottom: 0;">Reading</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DROPDOWN SECTION -->
+        <section id="select">
+            <h2>Dropdown Lists (Select)</h2>
+            <p class="section-intro">Dropdown lists (select elements) allow users to choose from a predefined list of options. They're ideal for long lists of choices where radio buttons would take too much space.</p>
+
+            <div class="attributes-block">
+                <strong>Key Attributes:</strong>
+                SIZE="1" (dropdown) | SIZE="n" (scrolling list with n visible rows) | MULTIPLE (allow multiple selections)
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">💻 Code Example</div>
+                <div class="example-layout">
+                    <div class="code-section"><code>&lt;select name="country"&gt;
+  &lt;option&gt;Select...&lt;/option&gt;
+  &lt;option value="usa"&gt;USA&lt;/option&gt;
+  &lt;option value="uk"&gt;UK&lt;/option&gt;
+  &lt;option value="canada" selected&gt;
+    Canada (default)
+  &lt;/option&gt;
+&lt;/select&gt;</code></div>
+                    <div class="preview-section">
+                        <label>Choose a country:</label>
+                        <select name="country">
+                            <option>Select...</option>
+                            <option value="usa">USA</option>
+                            <option value="uk">UK</option>
+                            <option value="canada" selected>Canada (default)</option>
+                            <option value="australia">Australia</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLES SECTION -->
+        <section id="tables">
+            <h2>HTML Tables</h2>
+            <p class="section-intro">Tables are used to display data in rows and columns. They consist of &lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tr&gt; (rows), &lt;th&gt; (header cells), and &lt;td&gt; (data cells). Tables should be used for tabular data, not for page layout.</p>
+
+            <div class="table-info">
+                <strong>Table Structure:</strong>
+                &lt;table&gt; contains the entire table | &lt;thead&gt; contains header row(s) | &lt;tbody&gt; contains data rows | &lt;tr&gt; defines a row | &lt;th&gt; defines header cell | &lt;td&gt; defines data cell
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">📊 Table Structure Code</div>
+                <div class="code-section"><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header 1&lt;/th&gt;
+      &lt;th&gt;Header 2&lt;/th&gt;
+      &lt;th&gt;Header 3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data 1&lt;/td&gt;
+      &lt;td&gt;Data 2&lt;/td&gt;
+      &lt;td&gt;Data 3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></div>
+            </div>
+
+            <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--primary);">Working Example: Course Enrollment Data</h3>
+            <div class="example-block">
+                <div class="example-header">📊 Live Table Example</div>
+                <div style="padding: 2rem; background: #fcfbf9;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>S001</td>
+                                <td>Alice Johnson</td>
+                                <td>CSC 227</td>
+                                <td>A</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>S002</td>
+                                <td>Bob Smith</td>
+                                <td>CSC 227</td>
+                                <td>B+</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>S003</td>
+                                <td>Carol White</td>
+                                <td>CSC 227</td>
+                                <td>A-</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>S004</td>
+                                <td>David Brown</td>
+                                <td>CSC 227</td>
+                                <td>B</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>S005</td>
+                                <td>Emma Davis</td>
+                                <td>CSC 227</td>
+                                <td>A+</td>
+                                <td>Active</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--primary);">Advanced Example: Product Comparison Table</h3>
+            <div class="example-block">
+                <div class="example-header">📊 Complex Table with Multiple Attributes</div>
+                <div style="padding: 2rem; background: #fcfbf9;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Basic Plan</th>
+                                <th>Pro Plan</th>
+                                <th>Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Users</strong></td>
+                                <td>1</td>
+                                <td>Up to 10</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Storage</strong></td>
+                                <td>5 GB</td>
+                                <td>100 GB</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Support</strong></td>
+                                <td>Email</td>
+                                <td>Email & Chat</td>
+                                <td>24/7 Phone</td>
+                            </tr>
+                            <tr>
+                                <td><strong>API Access</strong></td>
+                                <td>❌</td>
+                                <td>✓</td>
+                                <td>✓</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Price</strong></td>
+                                <td>Free</td>
+                                <td>$29/mo</td>
+                                <td>Contact us</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="table-info" style="margin-top: 2rem;">
+                <strong>Table Best Practices:</strong>
+                ✓ Use &lt;thead&gt; and &lt;tbody&gt; for semantic structure | ✓ Use &lt;th&gt; for headers with scope attribute | ✓ Keep tables simple and readable | ✓ Avoid using tables for layout (use CSS instead) | ✓ Ensure tables are responsive on mobile
+            </div>
+        </section>
+
+        <!-- LISTS SECTION -->
+        <section id="lists">
+            <h2>HTML Lists</h2>
+            <p class="section-intro">Lists are fundamental HTML elements used to organize and present information in a structured way. HTML supports three types of lists: unordered lists (with bullets), ordered lists (with numbers), and description lists (with terms and definitions).</p>
+
+            <div class="attributes-block">
+                <strong>Three Types of Lists:</strong>
+                &lt;ul&gt; (Unordered List) | &lt;ol&gt; (Ordered List) | &lt;dl&gt; (Description List)
+            </div>
+
+            <!-- UNORDERED LISTS -->
+            <h3 style="font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1.5rem; color: var(--primary);">Unordered Lists (&lt;ul&gt;)</h3>
+            <p class="section-intro">Unordered lists display items with bullet points. Each item is marked with a &lt;li&gt; tag. Use &lt;ul&gt; when the order of items doesn't matter.</p>
+
+            <div class="rules-block">
+                <strong>Unordered List Rules:</strong>
+                Each item wrapped in &lt;li&gt; | Default bullet style is disc | Can change with CSS (circle, square) | Order doesn't matter
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">💻 Code Example</div>
+                <div class="example-layout">
+                    <div class="code-section"><code>&lt;ul&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+  &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;</code></div>
+                    <div class="preview-section">
+                        <label style="display: block; margin-bottom: 1rem;">Shopping List:</label>
+                        <ul style="margin-left: 1.5rem;">
+                            <li>Milk</li>
+                            <li>Eggs</li>
+                            <li>Bread</li>
+                            <li>Butter</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDERED LISTS -->
+            <h3 style="font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1.5rem; color: var(--primary);">Ordered Lists (&lt;ol&gt;)</h3>
+            <p class="section-intro">Ordered lists display items with numbers. Use &lt;ol&gt; when the sequence of items is important, such as steps in a process or a ranking.</p>
+
+            <div class="rules-block">
+                <strong>Ordered List Rules:</strong>
+                Each item wrapped in &lt;li&gt; | Default numbering is 1, 2, 3... | Can use START attribute to begin at different number | TYPE attribute controls style (1, a, A, i, I)
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">💻 Code Example</div>
+                <div class="example-layout">
+                    <div class="code-section"><code>&lt;ol&gt;
+  &lt;li&gt;First step&lt;/li&gt;
+  &lt;li&gt;Second step&lt;/li&gt;
+  &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="a" start="1"&gt;
+  &lt;li&gt;Item A&lt;/li&gt;
+  &lt;li&gt;Item B&lt;/li&gt;
+&lt;/ol&gt;</code></div>
+                    <div class="preview-section">
+                        <label style="display: block; margin-bottom: 1rem;">Recipe Steps:</label>
+                        <ol style="margin-left: 1.5rem;">
+                            <li>Preheat oven to 350°F</li>
+                            <li>Mix dry ingredients</li>
+                            <li>Combine wet ingredients</li>
+                            <li>Bake for 25 minutes</li>
+                        </ol>
+                        <br>
+                        <label style="display: block; margin-bottom: 1rem;">Lettered List:</label>
+                        <ol type="a" style="margin-left: 1.5rem;">
+                            <li>Option A</li>
+                            <li>Option B</li>
+                            <li>Option C</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NESTED LISTS -->
+            <h3 style="font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1.5rem; color: var(--primary);">Nested Lists</h3>
+            <p class="section-intro">Lists can be nested inside other lists to create hierarchical structures. This is useful for showing relationships and sub-categories within your data.</p>
+
+            <div class="attributes-block">
+                <strong>Nesting Guidelines:</strong>
+                Lists can be nested to any depth | Mix ordered and unordered lists | Each nested list must be inside a &lt;li&gt; tag | Proper indentation improves readability
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">💻 Code Example</div>
+                <div class="example-layout">
+                    <div class="code-section"><code>&lt;ul&gt;
+  &lt;li&gt;Fruits
+    &lt;ul&gt;
+      &lt;li&gt;Apples&lt;/li&gt;
+      &lt;li&gt;Bananas&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Vegetables
+    &lt;ul&gt;
+      &lt;li&gt;Carrots&lt;/li&gt;
+      &lt;li&gt;Broccoli&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></div>
+                    <div class="preview-section">
+                        <label style="display: block; margin-bottom: 1rem;">Course Outline:</label>
+                        <ul style="margin-left: 1.5rem;">
+                            <li>Module 1: HTML Basics
+                                <ul>
+                                    <li>Tags and Elements</li>
+                                    <li>Forms and Inputs</li>
+                                    <li>Lists and Tables</li>
+                                </ul>
+                            </li>
+                            <li>Module 2: Styling
+                                <ul>
+                                    <li>CSS Selectors</li>
+                                    <li>Colors and Fonts</li>
+                                    <li>Layout and Positioning</li>
+                                </ul>
+                            </li>
+                            <li>Module 3: JavaScript
+                                <ul>
+                                    <li>Variables and Functions</li>
+                                    <li>DOM Manipulation</li>
+                                    <li>Event Handling</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESCRIPTION LISTS -->
+            <h3 style="font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1.5rem; color: var(--primary);">Description Lists (&lt;dl&gt;)</h3>
+            <p class="section-intro">Description lists are used to define terms and their descriptions. This is ideal for glossaries, definitions, specifications, and Q&A formats. Uses &lt;dt&gt; (term) and &lt;dd&gt; (definition) tags.</p>
+
+            <div class="rules-block">
+                <strong>Description List Structure:</strong>
+                &lt;dl&gt; contains the entire list | &lt;dt&gt; defines a term | &lt;dd&gt; provides the definition or description | Multiple terms can share one definition or vice versa
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">💻 Code Example</div>
+                <div class="example-layout">
+                    <div class="code-section"><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup 
+    Language&lt;/dd&gt;
+
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Cascading Style 
+    Sheets&lt;/dd&gt;
+
+  &lt;dt&gt;JavaScript&lt;/dt&gt;
+  &lt;dd&gt;Programming language 
+    for web interactivity&lt;/dd&gt;
+&lt;/dl&gt;</code></div>
+                    <div class="preview-section">
+                        <label style="display: block; margin-bottom: 1rem;">Web Development Glossary:</label>
+                        <dl style="margin-left: 1.5rem;">
+                            <dt style="font-weight: 600; color: var(--primary); margin-top: 0.5rem;">HTML</dt>
+                            <dd style="margin-left: 1.5rem; margin-bottom: 0.5rem;">HyperText Markup Language – the standard markup language for creating web pages</dd>
+                            
+                            <dt style="font-weight: 600; color: var(--primary); margin-top: 0.5rem;">CSS</dt>
+                            <dd style="margin-left: 1.5rem; margin-bottom: 0.5rem;">Cascading Style Sheets – used to style and layout web pages</dd>
+                            
+                            <dt style="font-weight: 600; color: var(--primary); margin-top: 0.5rem;">DOM</dt>
+                            <dd style="margin-left: 1.5rem;">Document Object Model – a programming interface for HTML documents</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPREHENSIVE COMPARISON TABLE -->
+            <h3 style="font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1.5rem; color: var(--primary);">List Types Comparison</h3>
+            <div class="example-block">
+                <div class="example-header">📊 Quick Reference Table</div>
+                <div style="padding: 2rem; background: #fcfbf9;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>List Type</th>
+                                <th>Tag</th>
+                                <th>Best For</th>
+                                <th>Default Display</th>
+                                <th>Item Tag</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Unordered</strong></td>
+                                <td>&lt;ul&gt;</td>
+                                <td>Collections, groups with no priority</td>
+                                <td>Bullets (•)</td>
+                                <td>&lt;li&gt;</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ordered</strong></td>
+                                <td>&lt;ol&gt;</td>
+                                <td>Steps, rankings, sequences</td>
+                                <td>Numbers (1, 2, 3...)</td>
+                                <td>&lt;li&gt;</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Description</strong></td>
+                                <td>&lt;dl&gt;</td>
+                                <td>Definitions, glossaries, Q&A</td>
+                                <td>Terms + Definitions</td>
+                                <td>&lt;dt&gt;, &lt;dd&gt;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="table-info" style="margin-top: 2rem;">
+                <strong>List Best Practices:</strong>
+                ✓ Use semantic list tags for proper HTML structure | ✓ Keep list items concise and parallel in structure | ✓ Use ordered lists only when sequence matters | ✓ Nest lists for hierarchical information | ✓ Use description lists for definitions and specifications | ✓ Style with CSS for visual consistency
+            </div>
+        </section>
+
+        <!-- COMPLETE FORM EXAMPLE -->
+        <section>
+            <h2>Complete Form Example</h2>
+            <p class="section-intro">This form demonstrates all the elements we've learned: text inputs, email, radio buttons, checkboxes, dropdowns, textarea, and buttons.</p>
+
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Enrollment Status:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="full" name="enrollment" value="fulltime" checked>
+                            <label for="full" style="margin-bottom: 0;">Full-time</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="part" name="enrollment" value="parttime">
+                            <label for="part" style="margin-bottom: 0;">Part-time</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Courses of Interest:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="web" name="courses" value="web" checked>
+                            <label for="web" style="margin-bottom: 0;">Web Development</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="data" name="courses" value="data">
+                            <label for="data" style="margin-bottom: 0;">Data Science</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="mobile" name="courses" value="mobile">
+                            <label for="mobile" style="margin-bottom: 0;">Mobile Development</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <select id="country" name="country">
+                        <option>Select a country...</option>
+                        <option value="usa">United States</option>
+                        <option value="canada">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="australia">Australia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Additional Comments:</label>
+                    <textarea id="comments" name="comments" COLS="50" ROWS="5" placeholder="Tell us more about yourself..."></textarea>
+                </div>
+
+                <input type="submit" value="Submit Application">
+                <input type="reset" value="Clear Form">
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 HTML Elements Guide | CSC 227 Educational Resource</p>
+        <a href="#forms" class="back-to-top">↑ Back to Top</a>
+    </footer>
+</body>
+</html>
